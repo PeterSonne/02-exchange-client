@@ -5,25 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Currency Exchange</title>
+    <script src="axios.min.js"></script>
     <script src="script.js" defer></script>
   </head>
   <body>
     <div class="exchange">
-      <input type="number" id="amt" placeholder="0.00" />
+      <input
+        type="number"
+        id="amt"
+        placeholder="0.00"
+        onchange="setAmount(event)"
+      />
       <div class="currencies">
-        <select name="" id="">
+        <select name="" id="" onchange="setFromCurrency(event)">
           <option value="EUR">EUR</option>
           <option value="USD">USD</option>
           <option value="JPY">JPY</option>
         </select>
         <span>to</span>
-        <select name="" id="">
+        <select name="" id="" onchange="setToCurrency(event)">
           <option value="USD">USD</option>
           <option value="EUR">EUR</option>
           <option value="JPY">JPY</option>
         </select>
       </div>
-      <button>Convert</button>
+      <button onclick="convert()">Convert</button>
       <p id="output"></p>
     </div>
   </body>
